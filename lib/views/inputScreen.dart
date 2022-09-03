@@ -213,6 +213,8 @@ class _inputScreenState extends State<inputScreen> {
 
     await submit.set(json);
 
+    Navigator.pop(context);
+
 
   }
 }

@@ -74,13 +74,21 @@ class _listScreenState extends State<listScreen> {
   Widget buildUser (Users users) => Padding(
       padding: EdgeInsets.symmetric(horizontal: 10,),
     child: Utility().listCard(context, '',
-        ListTile(
-            onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => updateScreen(data: Users(users.id, users.name, users.gender, users.dateofbirth, users.height))));
-            },
-            leading: Icon(Icons.person,color: users.gender=='Male'?Colors.blue:Colors.pinkAccent,size: 50,),
-            title: Text(users.name),
-            subtitle: Text(users.dateofbirth),
+        Row(
+          children: [
+            Expanded(
+                flex: 5,
+                child: ListTile(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => updateScreen(data: Users(users.id, users.name, users.gender, users.dateofbirth, users.height))));
+                  },
+                  leading: Icon(Icons.person,color: users.gender=='Male'?Colors.blue:Colors.pinkAccent,size: 50,),
+                  title: Text(users.name),
+                  subtitle: Text(users.dateofbirth),
+                )
+            ),
+            Expanded(child: Icon(Icons.edit,color: Colors.grey,))
+          ],
         )
             , (p0) => null),
   );
